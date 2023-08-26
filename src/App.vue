@@ -1,7 +1,8 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link>
-    <router-link :to="{ name: 'counter'}">Counter</router-link>
+    <router-link :to="{ name: 'counter' }">Counter</router-link>
+    <router-link :to="{ name: 'about' }">About</router-link>
   </div>
 
   <div id="app">
@@ -10,10 +11,9 @@
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-}
+  name: "App",
+};
 </script>
 
 <style scoped lang="css">
