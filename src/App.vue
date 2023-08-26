@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link>
     <router-link :to="{ name: 'counter' }">Counter</router-link>
     <router-link :to="{ name: 'about' }">About</router-link>
+    <router-link :to="{ name: 'users' }">Users</router-link>
   </div>
 
   <div id="app">
