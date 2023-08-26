@@ -5,8 +5,8 @@
     <input
       type="number"
       placeholder="Numero del pokemon"
-      autofocus
       v-model="pokemonId"
+      ref="{{ txtSearchId }}"
     />
   </form>
 
@@ -27,9 +27,11 @@ export default {
     const router = useRouter();
 
     const pokemonId = ref(1);
+    const txtSearchId = ref();
 
     return {
       pokemonId,
+      txtSearchId,
 
       onSubmit: () => {
         router.push({
