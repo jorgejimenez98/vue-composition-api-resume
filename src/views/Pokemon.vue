@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { watch } from "vue";
 import { useRoute } from "vue-router";
 import { usePokemon } from "@/composables";
 
@@ -25,7 +26,19 @@ export default {
     const route = useRoute();
     const pokemonId = route.params?.id;
 
-    return { ...usePokemon(pokemonId) };
+    const { pokemon, isLoading, errorMessage, searchPokemon } =
+      usePokemon(pokemonId);
+
+    watch(
+      () => route.params?.id,
+      () => searchPokemon(route.params?.id)
+    );
+
+    return {
+      pokemon,
+      isLoading,
+      errorMessage,
+    };
   },
 };
 </script>

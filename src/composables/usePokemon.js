@@ -1,12 +1,14 @@
 import axios from "axios"
 import { ref } from "vue"
 
-const usePokemon = (id) => {
+const usePokemon = (pokemonId) => {
     const pokemon = ref()
     const isLoading = ref(false)
     const errorMessage = ref()
 
-    const searchPokemon = async () => {
+    const searchPokemon = async (id) => {
+        if (!id) return
+
         isLoading.value = true
         try {
             const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -19,12 +21,13 @@ const usePokemon = (id) => {
         }
     }
 
-    searchPokemon()
+    searchPokemon(pokemonId)
     
     return {
         pokemon,
         isLoading,
-        errorMessage
+        errorMessage,
+        searchPokemon
     }
 }
 
