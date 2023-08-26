@@ -4,6 +4,7 @@
     <router-link :to="{ name: 'counter' }">Counter</router-link>
     <router-link :to="{ name: 'about' }">About</router-link>
     <router-link :to="{ name: 'users' }">Users</router-link>
+    <router-link :to="{ name: 'search-pokemon' }">Search</router-link>
   </div>
 
   <div id="app">
