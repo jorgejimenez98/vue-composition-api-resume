@@ -18,7 +18,7 @@ export default {
   emits: [],
 
   setup() {
-    const { counter, increase, decrease } = useCounter()
+    const { counter, increase, decrease } = useCounter(25)
 
     return { counter, increase, decrease }
   },
