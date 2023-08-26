@@ -1,5 +1,5 @@
 <template>
-  <h2>USers</h2>
+  <h2>Users</h2>
 
   <h2 v-if="isLoading">Espera por favor</h2>
 
@@ -23,42 +23,13 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import axios from "axios";
+import { useUsers } from "@/composables";
 
 export default {
   name: "users-view",
 
   setup() {
-    const users = ref([]);
-    const isLoading = ref(true);
-    const currentPage = ref(1);
-    const errorMessage = ref("");
-
-    const getUsers = async (page = 1) => {
-      if (page <= 0) page = 1;
-      isLoading.value = true;
-      try {
-        const {
-          data: { data: newUsers },
-        } = await axios.get(`https://reqres.in/api/users?page=${page}`);
-        users.value = newUsers;
-      } catch (error) {
-        errorMessage.value = "Error on get data";
-      }
-
-      isLoading.value = false;
-    };
-
-    getUsers();
-
-    return {
-      // Data
-      users,
-      isLoading,
-      currentPage,
-      errorMessage,
-    };
+    return { ...useUsers() };
   },
 };
 </script>
