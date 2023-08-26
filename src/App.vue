@@ -6,7 +6,11 @@
   </div>
 
   <div id="app">
-    <router-view />
+    <router-view v-slot="{ Component, name }">
+      <keep-alive>
+        <component :is="Component" :key="name" />
+      </keep-alive>
+    </router-view>
   </div>
 </template>
 
